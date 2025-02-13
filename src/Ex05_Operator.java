@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Ex05_Operator {
 
@@ -157,6 +158,72 @@ public class Ex05_Operator {
 			res = "월데이터가 없습니다. 1월 부터 12월중 골라주세요";
 		}
 		System.out.println(res);
+
+		/*
+		 * 난수 ( 랜덤 값, 임의의 추출값 ) 구글 GPT 사용없이 >> 자바 학습서 (API) 인터넷 ,로컬도 가능
+		 * https://docs.oracle.com/javase/8/docs/api/index.html static 은 new 없이 메모리에 올릴수
+		 * 있음, static을 붙힌 이유는 자주 사용할 거같은 곳에 편의상 만든것
+		 * 
+		 * 검색 : 패키지 ( 종류별로 모인 곳) java.lang.math 클래스 검색 ( 수학적인 다양한 함수 : 절대값 , 최대값, 최소값 등)
+		 * import java.lang.* >> 되는데 가독성이 떨어짐 import java.lang.Math 생략가능 자바 사용 시 기본적으로
+		 * 열어 놓고 사용. : java.lang.* default
+		 * 
+		 * 결과 : 0.0 <= random < 1.0
+		 * 
+		 * 
+		 */
+		System.out.println("Math random : " + Math.random());
+		System.out.println("Math random * 10: " + Math.random() * 10);
+		System.out.println("Math int random * 10: " + (int) (Math.random() * 10));
+		System.out.println("Math int random * 10: " + (int) ((Math.random() * 10) + 1));
+
+		/*
+		 * 우리는 백화점 경품 시스템을 만들려고 한다. 경품 시스템은 나오는 정수에 따라 지급하는 시스템이다.
+		 *  경품 추첨시 1000 점수가 나오면
+		 * 경품으로 TV Notebook, 냉장고 한우 세트 휴지 
+		 * 경품 추첨시 900 점수가 나오면 경품으로 TV Notebook, 냉장고 한우 세트
+		 * 휴지 경품 추첨시 800 점수가 나오면 
+		 * 경품으로 냉장고 한우 세트 휴지 
+		 * 경품 추첨시 700 점수가 나오면 
+		 * 경품으로 한우 세트 휴지 경품
+		 * 추첨시 600 점수가 나오면 경품으로 휴지 
+		 * 경품 추첨시 100~500 까지는 칫솔 
+		 * 점수는 100~1000 점까지 한정되어있다. 랜덤 범위
+		 * 100~1000까지다.
+		 * 
+		 * 프로그램 한번 실행시 그때 랜덤 갑이 나오고 그랜덤 값을 출력하면 된다. 최대한 짧은 코드로 ㄱㄱ
+		 */
+		// 0.0~0.99
+
+		int QuizResult = (int) ((Math.random() * 10) + 1) * 100;
+		String msg ="";
+		System.out.println("경품 점수 : " + QuizResult);
+		msg+="고객님의 점수는 : "+QuizResult+"이고 상품은 :";
+		switch (QuizResult) {
+		case 1000:
+			msg+="TV ";
+		case 900:
+			msg+="Notebook ";
+		case 800:
+			msg+="냉장고 ";
+		case 700:
+			msg+="한우세트 ";
+		case 600:
+			msg+="휴지 ";
+			break;
+		default:
+			msg+="칫솔";
+			break;
+		}
+		System.out.println(msg);
+		/*
+		 * LTS
+		 * 8, 11버전은
+		 * (문자열 비교 가능 )
+		 * String result = "";
+		 */
 	}
+
+	
 
 }
